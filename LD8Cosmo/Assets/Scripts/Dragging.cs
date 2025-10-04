@@ -16,6 +16,10 @@ public class Dragging : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        var rndx = 0;
+        var rndy = UnityEngine.Random.Range(0, 360f);
+        var rndz = 0;
+        transform.Rotate(Vector3.up * rndx + Vector3.forward * rndy + Vector3.left * rndz, Space.Self);
     }
 
     void Update()
@@ -23,6 +27,9 @@ public class Dragging : MonoBehaviour
         if (CurrentState == DragState.Held)
         {
             transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * followSpeed);
+        }
+        else {
+            transform.Rotate(Vector3.up * 30 * Time.deltaTime, Space.Self);
         }
     }
 
