@@ -13,7 +13,6 @@ public class VisibilityController : MonoBehaviour
         {
             foreach (var invising in Invisings) {
                 var distance = Vector3.Distance(invising.transform.position, mouseWorldPos);
-                Debug.Log(distance.ToString());
                 invising.HideChange(distance < invising.Distance);
             }
 
