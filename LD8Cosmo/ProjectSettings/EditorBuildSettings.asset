@@ -4,6 +4,12 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/SleepNStone1.unity
+    guid: a5f51613c4e854c4db3e810a672983a2
+  - enabled: 1
+    path: Assets/Scenes/SleepNStone2.unity
+    guid: 5b7cc724578f1374cb3256a7b430966b
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

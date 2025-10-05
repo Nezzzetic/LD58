@@ -22,8 +22,9 @@ public class BigSphereInteraction : MonoBehaviour
 
     private void Start()
     {
-        ScaleList = new float[]{ 1.5f,3,50 };
+        ScaleList = new float[]{ 2,4,50 };
         scaling = false;
+        currentTargetScale = transform.localScale.x;
     }
 
     private void Update()
@@ -36,7 +37,8 @@ public class BigSphereInteraction : MonoBehaviour
         var consume = other.GetComponent<Consuming>();
         if (consume != null)
         {
-            ScaleChange(ScaleList[consume.ConsumeClass]);
+            Debug.Log("" + currentTargetScale);
+            ScaleChange(ScaleList[consume.ConsumeClass]/ (0.8f+currentTargetScale * 0.1f));
             var invischeck = false;
             var consumeInvis = consume.GetComponent<Invising>();
             if (consumeInvis != null) { 
@@ -56,6 +58,7 @@ public class BigSphereInteraction : MonoBehaviour
         currentTargetScale += addScale;
         if (currentTargetScale> scaleToEnd)
         {
+            scaling = false;
             scalingEnd = true;
         }else
         {
@@ -67,7 +70,11 @@ public class BigSphereInteraction : MonoBehaviour
         {
         if (scaling) { 
             transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(currentTargetScale, 0.1f, currentTargetScale), Time.deltaTime * scaleChangeMaxSpeed);
-            if (currentTargetScale - transform.localScale.x < 0.1f) scaling = false;
+            if (currentTargetScale - transform.localScale.x < 0.2f)
+            {
+                scaling = false;
+                currentTargetScale= transform.localScale.x;
+            }
             }
         }
 
@@ -78,6 +85,7 @@ public class BigSphereInteraction : MonoBehaviour
         {
             transform.localScale += new Vector3(1, 0, 1) * scaleChangeEndSpeed * Time.deltaTime;
             TimerToEndLvl-= Time.deltaTime;
+
             if (TimerToEndLvl<0)
             {
                 NextLvl();

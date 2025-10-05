@@ -7,6 +7,8 @@ public class Dragging : MonoBehaviour
     public DragState CurrentState { get; private set; } = DragState.Idle;
     private Rigidbody rb;
     public Collider Mycollider;
+    public float staticRotation;
+    public bool randomStartRotation;
 
     public event Action<DragState> OnStateChanged;
 
@@ -16,10 +18,7 @@ public class Dragging : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        var rndx = 0;
-        var rndy = UnityEngine.Random.Range(0, 360f);
-        var rndz = 0;
-        transform.Rotate(Vector3.up * rndx + Vector3.forward * rndy + Vector3.left * rndz, Space.Self);
+        
     }
 
     void Update()
@@ -29,7 +28,7 @@ public class Dragging : MonoBehaviour
             transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * followSpeed);
         }
         else {
-            transform.Rotate(Vector3.up * 30 * Time.deltaTime, Space.Self);
+            transform.Rotate(Vector3.up * staticRotation * Time.deltaTime, Space.Self);
         }
     }
 
