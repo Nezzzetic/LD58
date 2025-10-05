@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BigSphereInteraction : MonoBehaviour
 {
@@ -10,18 +11,25 @@ public class BigSphereInteraction : MonoBehaviour
     private float currentScale;
     private float currentTargetScale;
     private bool scaling;
+    private bool scalingEnd;
+    public float scaleChangeEndSpeed;
+    public float scaleToEnd;
+    public float scaleEnd;
+    public float TimerToEndLvl;
+    public int scene;
 
 
 
     private void Start()
     {
-        ScaleList = new float[]{ 1.5f,3 };
+        ScaleList = new float[]{ 1.5f,3,50 };
         scaling = false;
     }
 
     private void Update()
     {
         ScaleUpdate();
+        ScaleUpdateEnd();
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -44,8 +52,15 @@ public class BigSphereInteraction : MonoBehaviour
 
     void ScaleChange(float addScale)
     {
+        if (scalingEnd) return;
         currentTargetScale += addScale;
-        scaling = true;
+        if (currentTargetScale> scaleToEnd)
+        {
+            scalingEnd = true;
+        }else
+        {
+            scaling = true;
+        }
     }
 
         void ScaleUpdate()
@@ -55,4 +70,23 @@ public class BigSphereInteraction : MonoBehaviour
             if (currentTargetScale - transform.localScale.x < 0.1f) scaling = false;
             }
         }
+
+    void ScaleUpdateEnd()
+    {
+
+        if (scalingEnd)
+        {
+            transform.localScale += new Vector3(1, 0, 1) * scaleChangeEndSpeed * Time.deltaTime;
+            TimerToEndLvl-= Time.deltaTime;
+            if (TimerToEndLvl<0)
+            {
+                NextLvl();
+            }
+        }
     }
+
+    void NextLvl()
+    {
+        SceneManager.LoadScene(scene + 1);
+    }
+}
