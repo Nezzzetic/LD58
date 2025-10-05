@@ -2,7 +2,14 @@ using UnityEngine;
 
 public class DragController : MonoBehaviour
 {
-    private Dragging heldRock = null;
+    private Dragging heldRock = null; 
+    public AudioSource AudioSource;
+    public AudioClip[] audioClips;
+
+    private void Awake()
+    {
+        AudioSource = GetComponent<AudioSource>();
+    }
 
     void Update()
     {
@@ -35,6 +42,9 @@ public class DragController : MonoBehaviour
             {
                 heldRock = rock;
                 heldRock.SetState(DragState.Held);
+                var rndClip = UnityEngine.Random.Range(0, audioClips.Length - 1);
+                AudioSource.clip = audioClips[rndClip];
+                AudioSource.Play();
             }
         }
     }

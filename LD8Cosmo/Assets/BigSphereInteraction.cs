@@ -17,8 +17,15 @@ public class BigSphereInteraction : MonoBehaviour
     public float scaleEnd;
     public float TimerToEndLvl;
     public int scene;
+    public AudioSource AudioSource;
+    public AudioClip[] audioClips;
+    float numTimer;
+    public GameObject puff;
 
-
+    private void Awake()
+    {
+        AudioSource=GetComponent<AudioSource>();
+    }
 
     private void Start()
     {
@@ -31,14 +38,23 @@ public class BigSphereInteraction : MonoBehaviour
     {
         ScaleUpdate();
         ScaleUpdateEnd();
+        if (numTimer >= 0)
+        {
+            numTimer -= Time.deltaTime; if (numTimer < 0) numTimer = -1;
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
         var consume = other.GetComponent<Consuming>();
         if (consume != null)
         {
-            Debug.Log("" + currentTargetScale);
             ScaleChange(ScaleList[consume.ConsumeClass]/ (0.8f+currentTargetScale * 0.1f));
+            if (numTimer<0) { 
+            var rndClip= UnityEngine.Random.Range(0, audioClips.Length-1);
+            AudioSource.clip = audioClips[rndClip];
+            AudioSource.Play();
+                numTimer = 0.1f;
+            }
             var invischeck = false;
             var consumeInvis = consume.GetComponent<Invising>();
             if (consumeInvis != null) { 
@@ -48,7 +64,9 @@ public class BigSphereInteraction : MonoBehaviour
             }
             if (invischeck) VisibilityController.Invisings.Remove(other.GetComponent<Invising>());
             }
+            var pufflocal=Instantiate(puff,other.transform.position, Quaternion.identity);
             Destroy(other.gameObject);
+            Destroy(pufflocal,1);
         }
     }
 
@@ -96,5 +114,11 @@ public class BigSphereInteraction : MonoBehaviour
     void NextLvl()
     {
         SceneManager.LoadScene(scene + 1);
+    }
+
+    public void Feed()
+    {
+        ScaleChange(50);
+        scalingEnd=true;
     }
 }

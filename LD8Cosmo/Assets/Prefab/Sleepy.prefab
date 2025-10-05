@@ -312,7 +312,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2
+      scalar: 1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -483,7 +483,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 0.75
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -800,7 +800,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     gravitySource: 0
-    maxNumParticles: 3
+    maxNumParticles: 2
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -1066,8 +1066,8 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1.5
-      minScalar: 0.5
+      scalar: 2
+      minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -7139,11 +7139,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73556d5039a2bc64bbab3c8b468772e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  radius: 2
+  detectionMask:
+    serializedVersion: 2
+    m_Bits: 1
   rotateAround: 0
   randomRotateAround: 1
   targetRotateAround: {fileID: 0}
   RotateAroundAngle: 0
-  RandomStartRotation: 1
+  RandomStartRotation: 0
 --- !u!1 &8544797327358102153
 GameObject:
   m_ObjectHideFlags: 0

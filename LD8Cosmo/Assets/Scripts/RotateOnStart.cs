@@ -1,7 +1,11 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class RotateOnStart : MonoBehaviour
 {
+    [Header("Detection Settings")]
+    public float radius = 5f;               // Radius to check within
+    public LayerMask detectionMask;
     public bool rotateAround;
     public bool randomRotateAround;
     public Transform targetRotateAround;
@@ -15,8 +19,23 @@ public class RotateOnStart : MonoBehaviour
         transform.RotateAround(Vector3.zero, Vector3.up, RotateAroundAngle);
         if (randomRotateAround)
         {
-            var rndy = UnityEngine.Random.Range(0, 360f);
-            transform.RotateAround(Vector3.zero, Vector3.up, rndy);
+            for (int i = 0; i < 15; i++)
+            {
+                var rndy = UnityEngine.Random.Range(0, 360f);
+                transform.RotateAround(Vector3.zero, Vector3.up, rndy);
+
+                Collider[] hits = Physics.OverlapSphere(transform.position, radius, detectionMask);
+                var problem = false;
+                foreach (Collider hit in hits)
+                {
+                    if (hit.attachedRigidbody != null && hit.gameObject != gameObject)
+                    {
+                        problem = true;
+                    }
+                }
+                if (!problem) { break; }
+            }
+            
         }
         if (RandomStartRotation)
         {

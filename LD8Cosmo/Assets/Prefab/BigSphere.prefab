@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1297770912534615077}
   - component: {fileID: 1458850059833544119}
   - component: {fileID: 7653277494676472522}
+  - component: {fileID: 5997951561178805419}
   m_Layer: 0
   m_Name: BigSphere
   m_TagString: Untagged
@@ -131,6 +132,123 @@ MonoBehaviour:
   scaleEnd: 0
   TimerToEndLvl: 2
   scene: 0
+  AudioSource: {fileID: 0}
+  audioClips:
+  - {fileID: 8300000, guid: e0f835a627df79e4c945b527e19ebc47, type: 3}
+  - {fileID: 8300000, guid: a1dc8d7a9b0068147894cbd7f0bd19d4, type: 3}
+  - {fileID: 8300000, guid: afc174414b246894da77590631341998, type: 3}
+  - {fileID: 8300000, guid: 01f303ce6afc35343ba0ba708e018e39, type: 3}
+  - {fileID: 8300000, guid: 135c1c5cbcc2f2f45a60f319a062807f, type: 3}
+  - {fileID: 8300000, guid: 0d3011cbbe251734981438a9a7316c1d, type: 3}
+  - {fileID: 8300000, guid: 576e523ace9a8814f9cab4b2cd175628, type: 3}
+  - {fileID: 8300000, guid: d8e7ff15e8b211e4abb35af0fec4910f, type: 3}
+  - {fileID: 8300000, guid: ef59769909f4b1943a9bad93173b755a, type: 3}
+  - {fileID: 8300000, guid: fc5d998bace4645409ff64028072e0d8, type: 3}
+  - {fileID: 8300000, guid: 26a47cd035f071e44a6454be4ac8eb13, type: 3}
+  - {fileID: 8300000, guid: 867e792712924b6449f5f186874ad5f2, type: 3}
+  - {fileID: 8300000, guid: 77ab24827fa246045ad4b7b0fbb2fb0c, type: 3}
+  - {fileID: 8300000, guid: b4324ba44040d9e41ad6c9c8335ad610, type: 3}
+  - {fileID: 8300000, guid: f5d033bdf1e7f884c9c041afb6654056, type: 3}
+  - {fileID: 8300000, guid: cadd7da2eed3ad24b87e43e3f8f31933, type: 3}
+  - {fileID: 8300000, guid: d42c447d87e9db44eb9eb65184b6ad45, type: 3}
+  puff: {fileID: 4729659762568906844, guid: 0f3d6b6bcb34d414ba57fe55e63a698a, type: 3}
+--- !u!82 &5997951561178805419
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2716427633541695220}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &4522329170723691764
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,7 +472,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.9630091, g: 1, b: 0, a: 1}
+      maxColor: {r: 0.98039216, g: 0.9372549, b: 0.3647059, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -5296,7 +5414,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.9630091, g: 1, b: 0, a: 1}
+      maxColor: {r: 0.98039216, g: 0.9372549, b: 0.3647059, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
