@@ -70,7 +70,7 @@ public class BigSphereInteraction : MonoBehaviour
         {
         if (scaling) { 
             transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(currentTargetScale, 0.1f, currentTargetScale), Time.deltaTime * scaleChangeMaxSpeed);
-            if (currentTargetScale - transform.localScale.x < 0.2f)
+            if (currentTargetScale - transform.localScale.x < 0.05f)
             {
                 scaling = false;
                 currentTargetScale= transform.localScale.x;

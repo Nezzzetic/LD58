@@ -7139,7 +7139,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73556d5039a2bc64bbab3c8b468772e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateAround: 1
+  rotateAround: 0
+  randomRotateAround: 1
   targetRotateAround: {fileID: 0}
   RotateAroundAngle: 0
   RandomStartRotation: 1

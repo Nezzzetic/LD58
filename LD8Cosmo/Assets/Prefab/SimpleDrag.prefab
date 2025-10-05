@@ -15,8 +15,9 @@ GameObject:
   - component: {fileID: 6133889305338008941}
   - component: {fileID: 8927959776887121221}
   - component: {fileID: 8430391295378350584}
+  - component: {fileID: 1237051641781666402}
   m_Layer: 0
-  m_Name: SmallSphere
+  m_Name: SimpleDrag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 1380597666219816574}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2, y: 1, z: 0}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -172,6 +173,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Consuming
   ConsumeClass: 0
+--- !u!114 &1237051641781666402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1380597666219816574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73556d5039a2bc64bbab3c8b468772e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateAround: 0
+  randomRotateAround: 1
+  targetRotateAround: {fileID: 0}
+  RotateAroundAngle: 0
+  RandomStartRotation: 0
 --- !u!1 &1990066457745947643
 GameObject:
   m_ObjectHideFlags: 0
