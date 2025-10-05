@@ -21,6 +21,7 @@ public class BigSphereInteraction : MonoBehaviour
     public AudioClip[] audioClips;
     float numTimer;
     public GameObject puff;
+    public bool endSoundBlock;
 
     private void Awake()
     {
@@ -53,7 +54,7 @@ public class BigSphereInteraction : MonoBehaviour
             var rndClip= UnityEngine.Random.Range(0, audioClips.Length-1);
             AudioSource.clip = audioClips[rndClip];
             AudioSource.Play();
-                numTimer = 0.1f;
+                numTimer = audioClips[rndClip].length/2;
             }
             var invischeck = false;
             var consumeInvis = consume.GetComponent<Invising>();
@@ -103,7 +104,23 @@ public class BigSphereInteraction : MonoBehaviour
         {
             transform.localScale += new Vector3(1, 0, 1) * scaleChangeEndSpeed * Time.deltaTime;
             TimerToEndLvl-= Time.deltaTime;
-
+            if (!endSoundBlock) { 
+            if (numTimer >= 0)
+            {
+                numTimer -= Time.deltaTime; if (numTimer < 0) numTimer = -1;
+            }
+            else
+            {
+                var rndClip = UnityEngine.Random.Range(0, audioClips.Length - 1);
+                    if (audioClips[rndClip].length> TimerToEndLvl) { numTimer = 10; } else { 
+                        AudioSource.clip = audioClips[rndClip];
+                AudioSource.Play();
+                numTimer = audioClips[rndClip].length+0.2f;
+                    AudioSource.pitch -= 0.04f;
+                    AudioSource.volume *= 0.8f;
+                    }
+                }
+            }
             if (TimerToEndLvl<0)
             {
                 NextLvl();

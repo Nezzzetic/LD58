@@ -24,6 +24,9 @@ EditorBuildSettings:
     path: Assets/Scenes/SmallSleepSmallMove.unity
     guid: 6f3bd5d76128aad45b4822ec0974cbce
   - enabled: 1
+    path: Assets/Scenes/SleepComet.unity
+    guid: ac8eb82b9f696344a895110dda7efe03
+  - enabled: 1
     path: Assets/Scenes/THEEND.unity
     guid: 54998d499f84df54cab3c6cfd2b0c49b
   m_configObjects: {}

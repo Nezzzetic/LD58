@@ -22,7 +22,7 @@ public class Moving : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Dragging != null && Dragging.CurrentState!=DragState.Held) {
+        if (Dragging == null || Dragging.CurrentState!=DragState.Held) {
             Move();
         }
     }
