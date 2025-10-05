@@ -51,6 +51,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: aee285c5e0187954a83b4daa968aad24, type: 3}
   - {fileID: 8300000, guid: fe4943afebd421c498dfafd06cb01c52, type: 3}
   - {fileID: 8300000, guid: 2bc10cc737f580d46a3e6dfe6ed3994d, type: 3}
+  NoClick: {fileID: 4729659762568906844, guid: 7325df4feba39d94f835289941aa6672, type: 3}
 --- !u!114 &3523991746833087120
 MonoBehaviour:
   m_ObjectHideFlags: 0

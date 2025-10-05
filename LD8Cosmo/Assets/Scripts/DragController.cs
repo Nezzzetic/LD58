@@ -5,6 +5,7 @@ public class DragController : MonoBehaviour
     private Dragging heldRock = null; 
     public AudioSource AudioSource;
     public AudioClip[] audioClips;
+    public GameObject NoClick;
 
     private void Awake()
     {
@@ -45,6 +46,12 @@ public class DragController : MonoBehaviour
                 var rndClip = UnityEngine.Random.Range(0, audioClips.Length - 1);
                 AudioSource.clip = audioClips[rndClip];
                 AudioSource.Play();
+            }
+            NoClick noclick = hit.collider.GetComponent<NoClick>();
+            if (noclick != null)
+            {
+                var noclickpart = Instantiate(NoClick, hit.collider.transform.position, Quaternion.identity);
+                Destroy(noclickpart, 3);
             }
         }
     }
